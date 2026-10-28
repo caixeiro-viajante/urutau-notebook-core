@@ -1,0 +1,8 @@
+.dev.vars
+.env
+.env.*
+dist/
+.wrangler/
+worker-configuration.d.ts
+node_modules/
+worker-runtime.d.ts

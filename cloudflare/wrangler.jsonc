@@ -1,0 +1,58 @@
+{
+  "name": "urutau-notebook-core",
+  "main": "src/index.ts",
+  "account_id": "8ee3ee2550b95eb50705b8dc48b43830",
+  "compatibility_date": "2026-10-28",
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": false
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01
+    }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "urutau-notebook-core",
+      "database_id": "d9dd1413-f76b-43c8-b711-282f6edd2f4e",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "DOCUMENTS",
+      "bucket_name": "urutau-documental-private"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "INGEST_QUEUE",
+        "queue": "urutau-documental-ingest"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "urutau-documental-ingest",
+        "max_batch_size": 1,
+        "max_concurrency": 1,
+        "max_retries": 2
+      }
+    ]
+  },
+  "vars": {
+    "GEMINI_MODEL": "gemini-3.5-flash-lite",
+    "MAX_JOBS_PER_ACTOR_DAY": "20"
+  },
+  "secrets": {
+    "required": [
+      "GEMINI_API_KEY"
+    ]
+  }
+}

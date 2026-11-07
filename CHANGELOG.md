@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Cura documentary adapter (fork only).** An isolated Cloudflare Worker preserves original files and exact Folha text, emits versioned JSON-LD and a semantic delta, and queues Google AI organization or reviewed transcription. Ownership comes from the existing diary gateway; global destinations remain private proposals. See `cloudflare/README.md` and `docs/7-DEVELOPMENT/decisions/ADR-CURA-001-documental-cloudflare.md`.
+
 ### Changed
 - **Documentation rewritten against the code.** Every page under `docs/` was checked against v1.15.0 and rewritten where it described an older or imagined product (#1458, #1459, #1460, #1461):
   - **Install:** one canonical path built on the shipped `docker-compose.yml`, with small override files for the Ollama and LM Studio variants. The network-exposure warning (bind ports to `127.0.0.1` or set a password) comes before the first `docker compose up -d`. Example encryption keys are generated, never copied. First-run setup lives in one place, [Connect a provider](docs/4-AI-PROVIDERS/index.md#connect-a-provider), and ends in a working chat via **Auto-assign Defaults**. The provider table is built from the provider registry: 24 providers, with the model types each one offers
@@ -645,3 +648,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependencies
 - Updated next.js to 15.4.10
 - Updated httpx to >=0.27.0 for SSL fix
+
